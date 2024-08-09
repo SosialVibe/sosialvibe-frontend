@@ -1,6 +1,6 @@
 import { Navigate,useLocation } from "react-router-dom";
 
-function isAuthenticated() {
+export function isAuthenticated() {
   const token = localStorage.getItem("token");
   return !!token;
 }

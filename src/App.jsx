@@ -4,18 +4,22 @@ import { routes } from "./routers";
 import { RouterProvider } from "react-router-dom";
 import axios from "axios";
 import { UserProvider } from "./context/user";
+import { isAuthenticated } from "./components/ProtectedRoute";
 function App() {
   const dummyData = generateData(10);
   const [user, setUser] = useState({});
   const [blogPost, setBlogPost] = useState({});
   const [blogImage, setBlogImage] = useState({});
   const [blogVideo, setBlogVideo] = useState({});
+  const isAuth = isAuthenticated();
 
   useEffect(() => {
-    refreshUser();
-    refreshBlog("blog", setBlogPost);
-    refreshBlog("image", setBlogImage);
-    refreshBlog("video", setBlogVideo);
+    if(isAuth) {
+      refreshUser();
+      refreshBlog("blog", setBlogPost);
+      refreshBlog("image", setBlogImage);
+      refreshBlog("video", setBlogVideo);
+    }
   }, []);
 
   async function refreshUser() {

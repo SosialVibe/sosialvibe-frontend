@@ -64,7 +64,8 @@ export function BlogVideos() {
       <div className="post-list flex flex-col gap-3 h-96 overflow-hidden overflow-y-auto">
         {videos.blogs && videos.blogs.length > 0 ? (
           videos.blogs.map((data, index) => (
-            <div key={index} onClick={() => handleClick(data)} className={`rounded-xl min-h-32 w-full bg-secondary cursor-pointer group relative overflow-hidden`}>
+            <div key={index} onClick={() => handleClick(data)} className={`rounded-xl 
+            min-h-32 max-h-32 w-full bg-secondary cursor-pointer group relative overflow-hidden`}>
               <video src={data.media} className="w-full h-full object-cover">
               </video>
               <div className="hidden absolute group-hover:block group-hover:bg-black group-hover:opacity-30 top-0 right-0 bottom-0 left-0"></div>
